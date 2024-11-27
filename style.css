@@ -1,0 +1,466 @@
+/* Light Theme */
+body {
+    background-color: #e6f7ff; /* Light blue background */
+    color: #333;
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+/* Dark Theme */
+body.dark-theme {
+    background-color: #1e1e1e;
+    color: #e0e0e0;
+}
+
+/* Header */
+header {
+    text-align: center;
+    padding: 15px;
+    background-color: #007BFF; /* Vibrant blue */
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+    border-bottom: 3px solid #0056b3; /* Add a darker blue border */
+}
+
+body.dark-theme header {
+    background-color: #333;
+    color: #fff;
+    border-bottom: 3px solid #444;
+}
+
+header button {
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    background-color: #007BFF;
+    color: white;
+    border: 2px solid #0056b3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+header button:hover {
+    background-color: #0056b3;
+    color: #e6f7ff;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme header button {
+    background-color: #444;
+    color: white;
+}
+
+body.dark-theme header button:hover {
+    background-color: #666;
+    color: #f0f0f0;
+}
+
+/* Sections */
+section {
+    margin: 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    background-color: #ffffff; /* White for contrast in light theme */
+    border: 2px solid #cccccc; /* Subtle border */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Shadow for depth */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+    width: 90%;
+    max-width: 800px;
+}
+
+body.dark-theme section {
+    background-color: #2a2a2a;
+    border: 2px solid #444; /* Darker border for contrast */
+}
+
+/* Section Titles */
+section h2 {
+    margin-bottom: 15px;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: center;
+    color: #007BFF; /* Blue for headers in light theme */
+    text-transform: uppercase;
+}
+
+body.dark-theme section h2 {
+    color: #f5f5f5;
+}
+
+/* Reasons Section */
+.reasons-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+}
+
+.reason {
+    flex: 1 1 calc(30% - 20px);
+    text-align: center;
+    background-color: #f9f9f9;
+    border: 2px solid #007BFF; /* Blue border for better visibility */
+    padding: 10px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease, border-color 0.3s ease;
+}
+
+.reason:hover {
+    transform: scale(1.05);
+    background-color: #007BFF;
+    color: #fff;
+    border-color: #0056b3;
+}
+
+body.dark-theme .reason {
+    background-color: #333;
+    border: 2px solid #444;
+}
+
+body.dark-theme .reason:hover {
+    background-color: #555;
+    color: #ddd;
+}
+
+/* Accordion Section */
+.accordion .accordion-item {
+    margin-bottom: 10px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #f9f9f9;
+    border: 2px solid #007BFF; /* Vibrant blue for visibility */
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-theme .accordion .accordion-item {
+    background-color: #333;
+    border: 2px solid #444;
+}
+
+.accordion .accordion-item h3 {
+    padding: 10px;
+    font-size: 18px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body.dark-theme .accordion-item h3 {
+    background-color: #444;
+    color: #ddd;
+}
+
+.accordion .accordion-item .content {
+    padding: 10px;
+    display: none;
+    background-color: #ffffff; /* White in light theme */
+    color: #333;
+}
+
+body.dark-theme .accordion .content {
+    background-color: #2a2a2a;
+    color: #e0e0e0;
+}
+
+/* Transparent Full Image as Guideline */
+.puzzle-guideline {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* Ensure it fits the container */
+    height: 100%;
+    opacity: 0.2; /* Make it faint */
+    pointer-events: none; /* Prevent interaction with the guideline */
+    z-index: 1; /* Behind puzzle pieces */
+}
+
+/* Puzzle Section Container */
+#puzzle-container {
+    position: relative;
+    width: 500px;
+    height: 500px;
+    margin: 20px auto;
+    border: 2px solid #007BFF;
+    background-color: white;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5x5 grid */
+    grid-template-rows: repeat(5, 1fr);
+    gap: 2px; /* Space between pieces */
+}
+
+/* Puzzle Pieces */
+.puzzle-piece {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 1px solid #ccc;
+    cursor: grab;
+    z-index: 2; /* Above guideline */
+}
+
+.puzzle-piece:active {
+    cursor: grabbing;
+    transform: scale(1.05); /* Slight zoom effect when dragging */
+}
+
+/* Highlight Correct Position */
+.puzzle-piece.correct {
+    border-color: #28a745; /* Green border for correct placement */
+}
+
+/* Form Section */
+form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+form input {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #007BFF;
+    width: 250px;
+    max-width: 80%;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 91, 179, 0.5);
+}
+
+form button {
+    font-size: 16px;
+    padding: 10px 20px;
+    border-radius: 8px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme form input {
+    background-color: #444;
+    color: #ddd;
+    border-color: #555;
+}
+
+body.dark-theme form button {
+    background-color: #444;
+    color: #ddd;
+}
+
+body.dark-theme form button:hover {
+    background-color: #666;
+}
+
+/* Leaderboard Section */
+#leaderboard-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#leaderboard-list li {
+    padding: 10px;
+    margin-bottom: 5px;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    border: 2px solid #007BFF;
+    transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
+}
+
+body.dark-theme #leaderboard-list li {
+    background-color: #333;
+    border-color: #444;
+}
+
+/* Side Image Enhancements */
+.side-image {
+    position: fixed;
+    width: auto;
+    height: 90%; /* Stretch vertically */
+    opacity: 0; /* Start hidden */
+    transition: transform 0.5s ease; /* Smooth transitions */
+    z-index: -1; /* Behind all content */
+    pointer-events: none; /* No interaction */
+}
+
+.side-image.cat {
+    top: 5%;
+    left: -50px;
+    transform: translateX(-100%);
+}
+
+.side-image.dog {
+    top: 5%;
+    right: -50px;
+    transform: translateX(100%);
+}
+
+body:not(.dark-theme) .side-image.cat {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+body:not(.dark-theme) .side-image.dog {
+    opacity: 0;
+    transform: translateX(100%);
+}
+
+body.dark-theme .side-image.cat {
+    transform: translateX(-100%);
+    opacity: 0;
+}
+
+body.dark-theme .side-image.dog {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+/* Enhanced Buttons for Better Positioning and Style */
+button {
+    display: inline-block;
+    margin: 10px auto;
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    background-color: #007BFF;
+    border: 2px solid #0056b3;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.1);
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.3);
+}
+
+body.dark-theme button {
+    background-color: #444;
+    border-color: #555;
+}
+
+body.dark-theme button:hover {
+    background-color: #666;
+    color: #fff;
+}
+
+/* Enhanced Form Styling */
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+form input,
+form button {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+    border: 2px solid #007BFF;
+    transition: border-color 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input {
+    width: 80%;
+    max-width: 300px;
+}
+
+form input:focus {
+    border-color: #0056b3;
+    box-shadow: 0 0 8px rgba(0, 91, 179, 0.5);
+}
+
+form button {
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #0056b3;
+    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme form input {
+    background-color: #444;
+    color: #ddd;
+    border-color: #555;
+}
+
+body.dark-theme form button {
+    background-color: #444;
+    color: #ddd;
+}
+
+body.dark-theme form button:hover {
+    background-color: #666;
+}
+
+/* Puzzle Section: Adjusted Layout for 5x3 Grid */
+#puzzle-container {
+    position: relative;
+    width: 500px; /* Adjusted width for 5 columns */
+    height: 300px; /* Adjusted height for 3 rows */
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-rows: repeat(3, 1fr); /* 3 rows */
+    gap: 2px; /* Space between pieces */
+    border: 3px solid #007BFF;
+    background-color: #ffffff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+body.dark-theme #puzzle-container {
+    background-color: #333;
+    border-color: #444;
+}
+
+/* Puzzle Pieces */
+.puzzle-piece {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border: 2px solid #ccc;
+    cursor: grab;
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.puzzle-piece:active {
+    cursor: grabbing;
+    transform: scale(1.05);
+}
+
+body.dark-theme .puzzle-piece {
+    border-color: #555;
+}
+
+body.dark-theme .puzzle-piece:active {
+    border-color: #777;
+}
